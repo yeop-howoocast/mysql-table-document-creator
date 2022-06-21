@@ -126,11 +126,6 @@ public class Main {
         sheet.setColumnWidth((short) 5, (short) 5000);
         sheet.setColumnWidth((short) 6, (short) 10000);
 
-        sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 1));
-        sheet.addMergedRegion(new CellRangeAddress(0, 0, 2, 6));
-        sheet.addMergedRegion(new CellRangeAddress(1, 1, 0, 1));
-        sheet.addMergedRegion(new CellRangeAddress(1, 1, 2, 6));
-
         // 시트에 타이틀 행을 하나 생성한다.(i 값이 0이면 첫번째 줄에 해당)
         int k = 0;
 
@@ -158,6 +153,9 @@ public class Main {
             cell = row.createCell(6);
             cell.setCellStyle(cellStyle1);
 
+            sheet.addMergedRegion(new CellRangeAddress(row.getRowNum(), row.getRowNum(), 0, 1));
+            sheet.addMergedRegion(new CellRangeAddress(row.getRowNum(), row.getRowNum(), 2, 6));
+
             row = sheet.createRow((short) k++);
             cell = row.createCell(0);
             cell.setCellValue("Description");
@@ -178,6 +176,9 @@ public class Main {
             cell.setCellStyle(cellStyle1);
             cell = row.createCell(6);
             cell.setCellStyle(cellStyle1);
+
+            sheet.addMergedRegion(new CellRangeAddress(row.getRowNum(), row.getRowNum(), 0, 1));
+            sheet.addMergedRegion(new CellRangeAddress(row.getRowNum(), row.getRowNum(), 2, 6));
 
             row = sheet.createRow((short) k++);
 
